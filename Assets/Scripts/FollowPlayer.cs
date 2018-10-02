@@ -2,6 +2,7 @@
 
 public class FollowPlayer : MonoBehaviour {
 
+    private GameObject objPlayer;
     private PlayerMovement movement;
     private Transform player;
     public Vector3 offset;
@@ -10,7 +11,13 @@ public class FollowPlayer : MonoBehaviour {
     private void Awake()
     {
         // Getter for the player
-        movement = GetComponent<PlayerMovement>();//TODO NullPointerException???
+        objPlayer = GameObject.Find("Player");
+        if (objPlayer != null)
+        {
+            // Getting the component inside the Player object
+            movement = objPlayer.GetComponent<PlayerMovement>();
+        }
+        
         player = movement.player;
 
         // Doing a 10 degree rotation vertically
