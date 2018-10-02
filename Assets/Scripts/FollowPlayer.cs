@@ -2,12 +2,25 @@
 
 public class FollowPlayer : MonoBehaviour {
 
-    public Transform player;
+    private PlayerMovement movement;
+    private Transform player;
     public Vector3 offset;
-    public bool notifPublished = false;
+    public Vector3 offsetRotation;
+    
+    private void Awake()
+    {
+        // Getter for the player
+        movement = GetComponent<PlayerMovement>();//TODO NullPointerException???
+        player = movement.player;
 
-	// Update is called once per frame
-	void Update () {
+        // Doing a 10 degree rotation vertically
+        transform.Rotate(10, 0, 0);
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
+        // Camera is following the player
         transform.position = player.position + offset;
-	}
+    }
 }

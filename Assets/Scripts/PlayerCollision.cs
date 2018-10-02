@@ -2,7 +2,13 @@
 
 public class PlayerCollision : MonoBehaviour {
 
-    public PlayerMovement movement;
+    private PlayerMovement movement;
+
+    private void Awake()
+    {
+        // Getter for the player
+        movement = GetComponent<PlayerMovement>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -13,7 +19,7 @@ public class PlayerCollision : MonoBehaviour {
             movement.enabled = false;
             
         }
-        if (collision.collider.tag == "TheEnd")
+        else  if (collision.collider.tag == "TheEnd")
         {
             Debug.Log("You win");
             movement.rb.AddForce(0, 600 * Time.deltaTime, -500 * Time.deltaTime, ForceMode.Impulse);

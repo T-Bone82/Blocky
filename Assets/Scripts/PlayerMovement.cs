@@ -3,37 +3,34 @@
 public class PlayerMovement : MonoBehaviour {
 
     public Rigidbody rb;
+    public Transform player;
+
     public float forwardForce = 2000f;
     public float sidewaysForce = 500f;
-    public Transform player;
+
     private bool notificationPublished = false;
     private bool resetPosition = false;
     private float resetTime = 0f;
-    private bool pushedBack = false;
-
+    
     // Update is called once per frame
     void FixedUpdate () {
-        if (resetPosition && (Time.fixedTime - resetTime) > 5)
+        if (resetPosition)
         {
-            resetPosition = false;
-            Debug.Log("set resetPosition to false");
-        }
-
-        if (resetPosition && !pushedBack)
+            if ((Time.fixedTime - resetTime) > 5)
+                resetPosition = false;
+            else
+            {
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                this.enabled = false;
+            }
+        } else
         {
-            rb.AddForce(0, 0, -2000 * Time.deltaTime, ForceMode.Impulse);
-            Debug.Log("BANG");
-            pushedBack = true;
-            this.enabled = false;
-        }
-        else if (!resetPosition)
-        {
-            //Debug.Log("Go for it JACK!");
-            //this.enabled = true;
+            this.enabled = true;
             rb.AddForce(0, 0, forwardForce * Time.deltaTime);
         }
-
-
+            
+        
         if (Input.GetKey("d"))
         {
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
@@ -42,9 +39,9 @@ public class PlayerMovement : MonoBehaviour {
         {
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
+
         if (player.position.y < -10 && !notificationPublished)
         {
-            Debug.Log("You fell in the hole");
             notificationPublished = true;
             resetPosition = true;
             resetTime = Time.fixedTime;
