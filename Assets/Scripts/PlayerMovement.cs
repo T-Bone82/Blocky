@@ -55,5 +55,4 @@ public class PlayerMovement : MonoBehaviour {
         transform.position = new Vector3(-3, 5f, -5.76f);
     }
 
-
 }
