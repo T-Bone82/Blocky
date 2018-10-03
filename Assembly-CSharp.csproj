@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\PlayerCollision.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Score.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/jeanfrancoist/Documents/GitHub/Blocky/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
