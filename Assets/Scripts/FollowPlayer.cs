@@ -18,7 +18,8 @@ public class FollowPlayer : MonoBehaviour {
             movement = objPlayer.GetComponent<PlayerMovement>();
         }
         
-        player = movement.player;
+        if (movement != null)
+            player = movement.player;
 
         // Doing a 10 degree rotation vertically
         transform.Rotate(10, 0, 0);
@@ -28,6 +29,7 @@ public class FollowPlayer : MonoBehaviour {
     void Update ()
     {
         // Camera is following the player
-        transform.position = player.position + offset;
+        if (player != null) 
+            transform.position = player.position + offset;
     }
 }

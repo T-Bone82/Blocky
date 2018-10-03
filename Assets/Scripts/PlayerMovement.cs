@@ -17,16 +17,13 @@ public class PlayerMovement : MonoBehaviour {
         if (resetPosition)
         {
             if ((Time.fixedTime - resetTime) > 5)
-                resetPosition = false;
-            else
             {
-                rb.velocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-                this.enabled = false;
-            }
-        } else
+                resetPosition = false;
+                notificationPublished = false;
+            }        
+        }
+        else
         {
-            this.enabled = true;
             rb.AddForce(0, 0, forwardForce * Time.deltaTime);
         }
             
@@ -42,10 +39,21 @@ public class PlayerMovement : MonoBehaviour {
 
         if (player.position.y < -10 && !notificationPublished)
         {
-            notificationPublished = true;
-            resetPosition = true;
-            resetTime = Time.fixedTime;
-            transform.position = new Vector3(0, 5f, -5.76f);
+            restart();
         }
     }
+
+    public void restart()
+    {
+        notificationPublished = true;
+        resetPosition = true;
+        resetTime = Time.fixedTime;
+
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        transform.position = new Vector3(-3, 5f, -5.76f);
+    }
+
+
 }
