@@ -37,9 +37,10 @@ public class PlayerMovement : MonoBehaviour {
             rb.AddForce(0, 0, forwardForce * Time.deltaTime); // Let advance the player
            
         // Reading registered keys and searching for "d" or "a"
-        if (Input.GetKey("d"))
+        //if (Input.GetKey("d"))
+        if (Input.GetAxis("Horizontal") > 0)
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-        if (Input.GetKey("a"))
+        if (Input.GetAxis("Horizontal") < 0)
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         
         // Reset position and restart if player if falling off the cliff
