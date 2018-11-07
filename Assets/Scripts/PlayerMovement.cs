@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         txtPoints = GameObject.Find("Points").GetComponent<Text>();
         txtHighScore = GameObject.Find("HighScore").GetComponent<Text>();
+        restart();
     }
 
     // Update is called once per frame

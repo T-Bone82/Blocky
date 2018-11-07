@@ -8,15 +8,13 @@ public class Score : MonoBehaviour {
     private Transform player;
     private float score = 0f;
     private Text txtPoints;
-    private Text txtHighScore;
-
+    
     public float getScore() { return score; }
     public void setScore(float value) { score = value; }
 
     private void Awake()
     {
         txtPoints = GameObject.Find("Points").GetComponent<Text>();
-        txtHighScore = GameObject.Find("HighScore").GetComponent<Text>();
         objPlayer = GameObject.Find("Player");
 
         if (objPlayer != null)

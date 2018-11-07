@@ -1829,7 +1829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 899771819}
   player: {fileID: 899771823}
-  forwardForce: 2000
+  forwardForce: 1000
   sidewaysForce: 60
 --- !u!54 &899771819
 Rigidbody:
