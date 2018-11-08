@@ -6,7 +6,7 @@ public class PauseMenuScript : MonoBehaviour {
 
     private GameObject pauseObject;
 
-    public void Awake()
+    /*public void Awake()
     {
         pauseObject = GameObject.Find("PausePrefab").GetComponent<GameObject>();
     }
@@ -29,5 +29,5 @@ public class PauseMenuScript : MonoBehaviour {
             Time.timeScale = 0f;
             pauseObject.SetActive(true);
         }
-    }
+    }*/
 }

@@ -178,8 +178,6 @@ C:\Dev\GitHub\Blocky\Temp\bin\Debug\System.Xml.dll
 C:\Dev\GitHub\Blocky\Temp\bin\Debug\System.Xml.Linq.dll
 C:\Dev\GitHub\Blocky\Temp\bin\Debug\Unity.Locator.dll
 C:\Dev\GitHub\Blocky\Temp\bin\Debug\Unity.PackageManagerUI.Editor.dll
-C:\Dev\GitHub\Blocky\Temp\bin\Debug\Unity.TextMeshPro.dll
-C:\Dev\GitHub\Blocky\Temp\bin\Debug\Unity.TextMeshPro.Editor.dll
 C:\Dev\GitHub\Blocky\Temp\bin\Debug\UnityEditor.dll
 C:\Dev\GitHub\Blocky\Temp\bin\Debug\UnityEditor.StandardEvents.dll
 C:\Dev\GitHub\Blocky\Temp\bin\Debug\UnityEngine.AccessibilityModule.dll
@@ -335,3 +333,5 @@ C:\Dev\GitHub\Blocky\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
 C:\Dev\GitHub\Blocky\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Dev\GitHub\Blocky\obj\Debug\Assembly-CSharp.dll
 C:\Dev\GitHub\Blocky\obj\Debug\Assembly-CSharp.pdb
+C:\Dev\GitHub\Blocky\Temp\bin\Debug\TextMeshPro-2017.3-Editor.dll
+C:\Dev\GitHub\Blocky\Temp\bin\Debug\TextMeshPro-2017.3-Runtime.dll

@@ -29,7 +29,6 @@ public class Score : MonoBehaviour {
         if (movement.getResetPosition())
         {
             txtPoints.text = "0";
-            Debug.Log(txtPoints.text);
         }
         if (movement != null) {
             if (movement.player.position.z > getScore())

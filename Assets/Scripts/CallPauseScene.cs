@@ -9,7 +9,7 @@ public class CallPauseScene : MonoBehaviour {
 
     public void Awake()
     {
-        pauseObject = GameObject.Find("PausePrefab").GetComponent<GameObject>();
+        pauseObject = (GameObject)Resources.Load("prefabs/PausePrefab", typeof(GameObject));
     }
 
     // Update is called once per frame
