@@ -5,16 +5,25 @@ using UnityEngine;
 public class PauseMenuScript : MonoBehaviour {
 
     private GameObject pauseObject;
+    private bool paused = false;
 
-    /*public void Awake()
-    {
-        pauseObject = GameObject.Find("PausePrefab").GetComponent<GameObject>();
+    public void Start () {
+        Object[] objs = Resources.FindObjectsOfTypeAll(typeof(GameObject));
+
+        foreach (Object obj in objs)
+        {
+            if (obj.name == "PausePrefab")
+            {
+                pauseObject = (GameObject) obj;
+            }
+        }
     }
 
     public void Resume()
     {
         Time.timeScale = 1;
-        pauseObject.SetActive(false);
+        pauseObject.SetActive(!paused);
+        paused = !paused;
     }
 
     public void QuitGame()
@@ -26,8 +35,16 @@ public class PauseMenuScript : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Time.timeScale = 0f;
-            pauseObject.SetActive(true);
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0f;
+            } else
+            {
+                Time.timeScale = 1;
+            }
+            
+            pauseObject.SetActive(!paused);
+            paused = !paused;
         }
-    }*/
+    }
 }
