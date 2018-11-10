@@ -9,8 +9,6 @@ C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\System.Xml.dll
 C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\System.Xml.Linq.dll
 C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\Unity.Locator.dll
 C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\Unity.PackageManagerUI.Editor.dll
-C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\Unity.TextMeshPro.dll
-C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\Unity.TextMeshPro.Editor.dll
 C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\UnityEditor.dll
 C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\UnityEditor.StandardEvents.dll
 C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\UnityEngine.AccessibilityModule.dll
@@ -335,3 +333,5 @@ C:\Dev\GitHub\Blocky\obj\Debug\Assembly-CSharp.dll
 C:\Dev\GitHub\Blocky\obj\Debug\Assembly-CSharp.pdb
 C:\Dev\GitHub\Blocky\Temp\bin\Debug\TextMeshPro-2017.3-Editor.dll
 C:\Dev\GitHub\Blocky\Temp\bin\Debug\TextMeshPro-2017.3-Runtime.dll
+C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\TextMeshPro-2017.3-Editor.dll
+C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\TextMeshPro-2017.3-Runtime.dll

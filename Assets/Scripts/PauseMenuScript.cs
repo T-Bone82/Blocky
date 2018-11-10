@@ -34,8 +34,8 @@ public class PauseMenuScript : MonoBehaviour {
 
     public void GotoMainMenu()
     {
-        SceneManager.UnloadScene(SceneManager.GetActiveScene());
-        SceneManager.LoadScene(1);
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
     }
 
     public void Update()
