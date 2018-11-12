@@ -28,37 +28,46 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate () {
         if (!theEnd)
         {
-            // Verify if situation of restart
-            if (getResetPosition())
-            {
-                if ((Time.fixedTime - resetTime) > 5)
-                {
-                    // After 5 seconds let it be!
-                    setResetPosition(false);
-                    notificationPublished = false;
-                }
-            }
-            else
-                rb.AddForce(0, 0, forwardForce * Time.deltaTime); // Let advance the player
-
-            // Reading registered keys and searching for "d" or "a"
-            if (Input.GetAxis("Horizontal") > 0)
-                rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-            if (Input.GetAxis("Horizontal") < 0)
-                rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-
-            // Reset position and restart if player if falling off the cliff
-            if (player.position.y < -10 && !notificationPublished)
-                restart();
-            // Update score with an integer number
-            txtPoints.text = ((int)player.position.z).ToString();
-
-            theEnd = isEnd();
+            keepMoving();
         }
         else
         {
-            //Show menu with success message.
+            showSuccessMenu();
         }
+    }
+
+    private void showSuccessMenu()
+    {
+
+    }
+
+    private void keepMoving() {
+        // Verify if situation of restart
+        if (getResetPosition())
+        {
+            if ((Time.fixedTime - resetTime) > 5)
+            {
+                // After 5 seconds let it be!
+                setResetPosition(false);
+                notificationPublished = false;
+            }
+        }
+        else
+            rb.AddForce(0, 0, forwardForce * Time.deltaTime); // Let advance the player
+
+        // Reading registered keys and searching for "d" or "a"
+        if (Input.GetAxis("Horizontal") > 0)
+            rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+        if (Input.GetAxis("Horizontal") < 0)
+            rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+
+        // Reset position and restart if player if falling off the cliff
+        if (player.position.y < -10 && !notificationPublished)
+            restart();
+        // Update score with an integer number
+        txtPoints.text = ((int)player.position.z).ToString();
+
+        theEnd = isEnd();
     }
 
     private bool isEnd()
@@ -68,7 +77,7 @@ public class PlayerMovement : MonoBehaviour {
         return 
             player.position.x > transformPoteau2.position.x 
             && player.position.x < transformPoteau1.position.x
-            && player.position.z > transformPoteau1.position.x;
+            && player.position.z > transformPoteau1.position.z;
     }
 
     private void UpdateScores()
