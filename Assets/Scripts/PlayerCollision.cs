@@ -24,18 +24,4 @@ public class PlayerCollision : MonoBehaviour {
         }
     }
 
-    /*private GameObject GetObject(string name)
-    {
-        Object[] objs = Resources.FindObjectsOfTypeAll(typeof(GameObject));
-
-        foreach (Object obj in objs)
-        {
-            if (obj.name == name)
-            {
-                return (GameObject) obj;
-            }
-        }
-        return null;
-    }*/
-
 }

@@ -333,5 +333,5 @@ C:\Dev\GitHub\Blocky\obj\Debug\Assembly-CSharp.dll
 C:\Dev\GitHub\Blocky\obj\Debug\Assembly-CSharp.pdb
 C:\Dev\GitHub\Blocky\Temp\bin\Debug\TextMeshPro-2017.3-Editor.dll
 C:\Dev\GitHub\Blocky\Temp\bin\Debug\TextMeshPro-2017.3-Runtime.dll
-C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\TextMeshPro-2017.3-Editor.dll
-C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\TextMeshPro-2017.3-Runtime.dll
+C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\Unity.TextMeshPro.dll
+C:\Users\jeanfrancoist\Documents\GitHub\Blocky\Temp\bin\Debug\Unity.TextMeshPro.Editor.dll
