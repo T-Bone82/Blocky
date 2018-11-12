@@ -17,11 +17,6 @@ public class PlayerCollision : MonoBehaviour {
             //GameObject crashAudio = GetObject("crashAudio");
             movement.restart();
         }
-        else  if (collision.collider.tag == "TheEnd")
-        {
-            movement.rb.AddForce(0, 600 * Time.deltaTime, -500 * Time.deltaTime, ForceMode.Impulse);
-            movement.enabled = false;
-        }
     }
 
 }
