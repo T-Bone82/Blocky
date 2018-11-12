@@ -26,8 +26,22 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate () {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = new Vector3(0, 0, 1);
+            //rb.ResetCenterOfMass();
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            //rb.velocity = new Vector3(0, 0, 1);
+            rb.AddForce(new Vector3(0, 10, 0));
+            //rb.ResetCenterOfMass();
+        }
+
+
         if (!theEnd)
         {
+            
             keepMoving();
         }
         else
@@ -66,7 +80,7 @@ public class PlayerMovement : MonoBehaviour {
             restart();
         // Update score with an integer number
         txtPoints.text = ((int)player.position.z).ToString();
-
+        
         theEnd = isEnd();
     }
 
