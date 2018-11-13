@@ -615,5 +615,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 54235440558491548}
   player: {fileID: 4008310294850988}
-  forwardForce: 3000
+  forwardForce: 2500
   sidewaysForce: 60
