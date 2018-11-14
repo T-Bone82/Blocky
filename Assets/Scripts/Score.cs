@@ -26,7 +26,7 @@ public class Score : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (movement.getResetPosition())
+        if (movement.isWaiting())
         {
             txtPoints.text = "0";
         }

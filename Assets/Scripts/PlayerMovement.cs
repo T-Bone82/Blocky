@@ -13,16 +13,17 @@ public class PlayerMovement : MonoBehaviour {
     private TextMeshProUGUI txtHighScore;
     private Transform transformPoteau1;
     private Transform transformPoteau2;
+    private GameObject endingMenu;
 
     private float resetTime = 0f;
-   
+
     private bool theEnd = false;
-    private bool notificationPublished = false;
-    private bool resetPosition = false;
+    private bool waiting = false;
     private bool stoppedSpaceShip = false;
 
-    void Awake()
+    void Start()
     {
+        rb.freezeRotation = true;
         txtPoints = GameObject.Find("Points").GetComponent<TextMeshProUGUI>();
         txtHighScore = GameObject.Find("HighScore").GetComponent<TextMeshProUGUI>();
         transformPoteau1 = GameObject.Find("poteauFin1").GetComponent<Transform>();
@@ -33,40 +34,46 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate ()
     {
         if (!theEnd)
+            KeepMoving();
+        else
         {
-            keepMoving();
-        }
-        else 
-        {
-            showSuccessMenu();
+            UpdateScores();
+            ShowSuccessMenu();
         }
     }
 
-    private void showSuccessMenu()
+    private void ShowSuccessMenu()
     {
         if (!stoppedSpaceShip)
         {
             stoppedSpaceShip = true;
             rb.velocity = new Vector3(0, 0, 20);
+            resetTime = Time.fixedTime;
+            setWaiting(true);
         }
-    }
-
-    private void keepMoving() {
-        // Verify if situation of restart
-        if (getResetPosition())
+        if (isWaiting())
         {
-            // After 5 seconds let it be!
-            if ((Time.fixedTime - resetTime) > 5)
-            {
-                setResetPosition(false);
-                notificationPublished = false;
-            }
+            if ((Time.fixedTime - resetTime) > 2)
+                setWaiting(false);
         }
         else
         {
-            // Let advance the player
+            endingMenu = Utilities.findGameObject("EndingMenu");
+            endingMenu.SetActive(true);
+        }
+    }
+
+    private void KeepMoving() {
+        if (isWaiting())
+        {
+            if ((Time.fixedTime - resetTime) > 5)
+                setWaiting(false);
+        }
+        else
+        {
             rb.AddForce(0, 0, forwardForce * Time.deltaTime);
         }
+            
             
         // Reading registered keys and searching for "d" or "a"
         if (Input.GetAxis("Horizontal") > 0)
@@ -75,7 +82,7 @@ public class PlayerMovement : MonoBehaviour {
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
         // Reset position and restart if player if falling off the cliff
-        if (player.position.y < -10 && !notificationPublished)
+        if (player.position.y < -10)
             restart();
 
         // Update score with an integer number
@@ -107,18 +114,14 @@ public class PlayerMovement : MonoBehaviour {
 
     public void restart()
     {
-        notificationPublished = true;
-        setResetPosition(true);
+        setWaiting(true);
         resetTime = Time.fixedTime;
-
         rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-
         transform.position = new Vector3(-3, 5f, 0f);
         UpdateScores();
     }
 
-    public bool getResetPosition() { return resetPosition; }
-    public void setResetPosition(bool value) { resetPosition = value; }
+    public bool isWaiting() { return waiting; }
+    public void setWaiting(bool value) { waiting = value; }
 
 }
