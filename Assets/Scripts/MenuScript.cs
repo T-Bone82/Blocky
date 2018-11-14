@@ -10,7 +10,10 @@ public class MenuScript : MonoBehaviour {
     private bool paused = false;
 
     public void Start () {
-        pauseObject = Utilities.findGameObject("PauseMenu");
+        if (SceneManager.GetActiveScene().name != "Menu")
+        {
+            pauseObject = Utilities.findGameObject("EndingMenu");
+        }
     }
 
     public void Update()
@@ -56,8 +59,10 @@ public class MenuScript : MonoBehaviour {
 
     public void StartNextLevel()
     {
+        Debug.Log(SceneManager.sceneCountInBuildSettings);
+
+
         SceneManager.LoadScene("Level02", LoadSceneMode.Single);
-        GameObject endingMenu = Utilities.findGameObject("EndingMenu");
     }
 
 }

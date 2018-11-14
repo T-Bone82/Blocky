@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.012686214, g: 0.021076031, b: 0.12824404, a: 1}
+  m_IndirectSpecularColor: {r: 0.0128677245, g: 0.0214539, b: 0.1285398, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1167035345}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -2317,7 +2317,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1167035345}
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -3433,7 +3433,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1167035345}
         m_MethodName: GotoMainMenu
         m_Mode: 1
         m_Arguments:
