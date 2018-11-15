@@ -15,6 +15,10 @@ public class PlayerMovement : MonoBehaviour {
     private Transform transformPoteau2;
     private GameObject endingMenu;
 
+    private TrailRenderer boosterLeft;
+    private TrailRenderer boosterCenter;
+    private TrailRenderer boosterRight;
+
     private float resetTime = 0f;
 
     private bool theEnd = false;
@@ -23,11 +27,13 @@ public class PlayerMovement : MonoBehaviour {
 
     void Start()
     {
-        rb.freezeRotation = true;
         txtPoints = GameObject.Find("Points").GetComponent<TextMeshProUGUI>();
         txtHighScore = GameObject.Find("HighScore").GetComponent<TextMeshProUGUI>();
         transformPoteau1 = GameObject.Find("poteauFin1").GetComponent<Transform>();
         transformPoteau2 = GameObject.Find("poteauFin2").GetComponent<Transform>();
+        endingMenu = Utilities.FindGameObject("EndingMenu");
+        
+        rb.freezeRotation = true;
         restart();
     }
 
@@ -58,7 +64,6 @@ public class PlayerMovement : MonoBehaviour {
         }
         else
         {
-            endingMenu = Utilities.findGameObject("EndingMenu");
             endingMenu.SetActive(true);
         }
     }

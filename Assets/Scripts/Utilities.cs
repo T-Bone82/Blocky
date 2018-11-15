@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using UnityEditor;
 
 public class Utilities : MonoBehaviour
 {
-
-    public static GameObject findGameObject(string name)
+    /// <summary>
+    /// Search in prefab, activated or desactivated and returns a GameObject with name corresponding to string name.
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public static GameObject FindGameObject(string name)
     {
         Object[] objs = Resources.FindObjectsOfTypeAll(typeof(GameObject));
         foreach (Object obj in objs)
@@ -16,9 +22,4 @@ public class Utilities : MonoBehaviour
         return null;
     }
 
-    public static bool hasNextLevel()
-    {
-        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        return nextScene < SceneManager.sceneCount;
-    }
 }

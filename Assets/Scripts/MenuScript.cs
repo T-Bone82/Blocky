@@ -2,17 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 
 public class MenuScript : MonoBehaviour {
 
     private GameObject pauseObject;
+    private GameObject txtEndOfGame;
+    private GameObject btnNextLevelButton;
+
     private bool paused = false;
 
     public void Start () {
         if (SceneManager.GetActiveScene().name != "Menu")
         {
-            pauseObject = Utilities.findGameObject("EndingMenu");
+            pauseObject = Utilities.FindGameObject("PauseMenu");
+            txtEndOfGame = Utilities.FindGameObject("TextEndOfGame");
+            btnNextLevelButton = Utilities.FindGameObject("NextLevelButton");
+            
+            int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+            if (nextLevel >= SceneManager.sceneCountInBuildSettings)
+            {
+                txtEndOfGame.SetActive(true);
+                btnNextLevelButton.SetActive(false);
+            }
         }
     }
 
@@ -49,20 +61,19 @@ public class MenuScript : MonoBehaviour {
     public void GotoMainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
     public void StartLevel01()
     {
-        SceneManager.LoadScene("Level01", LoadSceneMode.Single);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
     public void StartNextLevel()
     {
-        Debug.Log(SceneManager.sceneCountInBuildSettings);
-
-
-        SceneManager.LoadScene("Level02", LoadSceneMode.Single);
+        int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextLevel < SceneManager.sceneCountInBuildSettings)
+            SceneManager.LoadScene(nextLevel, LoadSceneMode.Single);
     }
 
 }
