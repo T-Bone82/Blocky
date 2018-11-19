@@ -594,7 +594,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -998,7 +998,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 549857238}
-  - component: {fileID: 549857239}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1028,17 +1027,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000015259, y: -38}
   m_SizeDelta: {x: 368.6, y: 329.8}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &549857239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 549857237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 508b615edd609c34d81e005351b4fde9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &564677796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,6 +1038,7 @@ GameObject:
   - component: {fileID: 564677799}
   - component: {fileID: 564677798}
   - component: {fileID: 564677797}
+  - component: {fileID: 564677801}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1135,6 +1124,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &564677801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564677796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 508b615edd609c34d81e005351b4fde9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &748172071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 549857239}
+      - m_Target: {fileID: 564677801}
         m_MethodName: StartLevel01
         m_Mode: 1
         m_Arguments:
@@ -2638,7 +2638,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 549857239}
+      - m_Target: {fileID: 564677801}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:

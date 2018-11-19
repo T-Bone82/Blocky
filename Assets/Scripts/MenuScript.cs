@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour {
 
     private GameObject pauseObject;
     private GameObject txtEndOfGame;
     private GameObject btnNextLevelButton;
+    private GameObject backButton;
 
     private bool paused = false;
 
     public void Start () {
-        if (SceneManager.GetActiveScene().name != "Menu")
+        if (SceneManager.GetActiveScene().name == "Menu")
         {
+            backButton = Utilities.FindGameObject("BackButton");
+        }
+        else
+        { 
             pauseObject = Utilities.FindGameObject("PauseMenu");
             txtEndOfGame = Utilities.FindGameObject("TextEndOfGame");
             btnNextLevelButton = Utilities.FindGameObject("NextLevelButton");
@@ -30,19 +36,32 @@ public class MenuScript : MonoBehaviour {
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (SceneManager.GetActiveScene().name == "Menu")
         {
-            if (Time.timeScale == 1)
+            if (Input.GetButtonDown("Cancel"))
             {
-                Time.timeScale = 0f;
+                if (backButton != null && backButton.active)
+                {
+                    backButton.GetComponent<Button>().onClick.Invoke();
+                }
             }
-            else
+        } else {
+            if (Input.GetButtonDown("Cancel"))
             {
-                Time.timeScale = 1;
+                if (Time.timeScale == 1)
+                {
+                    Time.timeScale = 0f;
+                }
+                else
+                {
+                    Time.timeScale = 1;
+                }
+                if (SceneManager.GetActiveScene().name != "Menu")
+                {
+                    pauseObject.SetActive(!paused);
+                    paused = !paused;
+                }
             }
-
-            pauseObject.SetActive(!paused);
-            paused = !paused;
         }
     }
 

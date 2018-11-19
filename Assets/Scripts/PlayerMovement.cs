@@ -74,12 +74,19 @@ public class PlayerMovement : MonoBehaviour {
             if ((Time.fixedTime - resetTime) > 5)
                 setWaiting(false);
         }
+        else if (Input.GetButtonDown("Boost"))
+        {
+            rb.velocity = new Vector3(0, 0, (forwardForce+200) * Time.deltaTime);
+        }
+        else if (Input.GetButtonDown("Brake"))
+        {
+            rb.velocity = new Vector3(0, 0, 20 * Time.deltaTime);
+        }
         else
         {
             rb.AddForce(0, 0, forwardForce * Time.deltaTime);
         }
-            
-            
+
         // Reading registered keys and searching for "d" or "a"
         if (Input.GetAxis("Horizontal") > 0)
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
